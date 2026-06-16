@@ -48,3 +48,7 @@ so the binary stays tiny and the local code is small enough to read in one sitti
 | Repo                                                  | Description                |
 | ----------------------------------------------------- | -------------------------- |
 | [openzot/openzot](https://github.com/openzot/openzot) | The zot coding agent (CLI) |
+
+### Related
+
+- [crmkit](https://github.com/crmkit/crmkit) - an agent-first CRM for AI agents.
