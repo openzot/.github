@@ -20,7 +20,7 @@ your code until the whole job is done - no prompting, no babysitting, no chat bo
 **Fastest way in** - grab a release, point it at a task, and let it run:
 
 ```bash
-zot "add a /health endpoint to the server and a test for it"
+zot "scaffold a tiny http server in go"
 ```
 
 <p align="center">
