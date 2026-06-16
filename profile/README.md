@@ -1,34 +1,22 @@
-<p align="center">
-	<img src="https://zot.im/icon-dark.svg" alt="OpenZot" width="100" height="100" />
-</p>
+# OpenZot
 
-<h1 align="center">OpenZot</h1>
+An autonomous coding agent you **watch**, not drive.
 
-<p align="center">
-	<strong>zot — a minimal, open-source coding assistant</strong>
-</p>
+`zot` inverts the usual coding-TUI interaction model. There is **no prompt and no
+chat box**. You hand it a single task on the command line, and it works the
+problem entirely on its own - reading files, editing them, and running shell
+commands - while the terminal streams a live, **read-only** view of every step.
 
-<p align="center">
-	<a href="https://zot.im">Website</a> · <a href="https://github.com/openzot/openzot">Repository</a>
-</p>
+<img width="1504" height="1080" alt="zot" src="https://github.com/user-attachments/assets/d12de01c-f13e-451c-93a3-d025b5b39dc6" />
 
----
+## Why it's tiny
 
-zot is a minimal coding assistant from OpenZot. The public site is intentionally
-small while the project takes shape in the repository.
+The agentic loop - model calls, tool orchestration, planning, iteration - runs on
+a capable cloud harness ([ChatBotKit](https://chatbotkit.com)). That keeps the
+local tool small, fast, and easy to reason about.
 
-### Repositories
+## Repository
 
-- [openzot](https://github.com/openzot/openzot) - the autonomous coding agent
-- [website](https://github.com/openzot/website) - the public landing page
+- [openzot/openzot](https://github.com/openzot/openzot) - the autonomous coding agent
 
-### Contributing
-
-Contributions welcome — open an issue or submit a pull request. See the
-repository-level contribution guidelines and the main `LICENSE.md` file.
-
-### Links
-
-- Website: https://zot.im
-- Source: https://github.com/openzot/openzot
-- Website source: https://github.com/openzot/website
+Contributions welcome - open an issue or a pull request.
