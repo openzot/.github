@@ -32,8 +32,10 @@ zot "scaffold a tiny http server in go"
 Coding agents are usually copilots: they wait for a prompt, suggest, and hand the
 keyboard back - so you babysit every step. zot flips that: you describe the job
 once and it runs the whole loop (plan → edit → run → verify → exit) on its own.
-The agentic loop runs on a capable cloud harness ([ChatBotKit](https://chatbotkit.com)),
-so the binary stays tiny and the local code is small enough to read in one sitting.
+The agentic loop runs on a capable cloud harness. The default backend is
+[ChatBotKit](https://chatbotkit.com); the built-in relay backend can use your
+OpenAI or OpenRouter key instead. Either way, the binary stays tiny and the
+local code is small enough to read in one sitting.
 
 ### What you get
 
@@ -49,6 +51,10 @@ so the binary stays tiny and the local code is small enough to read in one sitti
 | ----------------------------------------------------- | -------------------------- |
 | [openzot/openzot](https://github.com/openzot/openzot) | The zot coding agent (CLI) |
 
-### Related
+### Ecosystem
 
-- [crmkit](https://github.com/crmkit/crmkit) - an agent-first CRM for AI agents.
+| Project                                       | Role                                                           |
+| --------------------------------------------- | -------------------------------------------------------------- |
+| [Pantalk](https://github.com/pantalk/pantalk) | Connect coding agents to the chat platforms people already use |
+| [MCPShim](https://github.com/mcpshim/mcpshim) | Turn MCP servers and HTTP APIs into standard CLI commands      |
+| [crmkit](https://github.com/crmkit/crmkit)    | Give agents a shared CRM and system of record over HTTP or MCP |
