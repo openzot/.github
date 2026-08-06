@@ -123,8 +123,9 @@ docker run --rm -it \
 
 ### Ecosystem
 
-| Project                                       | Role                                                           |
-| --------------------------------------------- | -------------------------------------------------------------- |
-| [Pantalk](https://github.com/pantalk/pantalk) | Connect coding agents to the chat platforms people already use |
-| [MCPShim](https://github.com/mcpshim/mcpshim) | Turn MCP servers and HTTP APIs into standard CLI commands      |
-| [crmkit](https://github.com/crmkit/crmkit)    | Give agents a shared CRM and system of record over HTTP or MCP |
+| Project                                       | Role                                                             |
+| --------------------------------------------- | ---------------------------------------------------------------- |
+| [Rook](https://github.com/pdparchitect/rook)  | An AI bug-hunting and security-audit agent built on zot's engine |
+| [Pantalk](https://github.com/pantalk/pantalk) | Connect coding agents to the chat platforms people already use   |
+| [MCPShim](https://github.com/mcpshim/mcpshim) | Turn MCP servers and HTTP APIs into standard CLI commands        |
+| [crmkit](https://github.com/crmkit/crmkit)    | Give agents a shared CRM and system of record over HTTP or MCP   |
