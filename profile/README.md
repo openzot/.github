@@ -14,16 +14,19 @@
 
 ---
 
-zot is an **open source automated software factory**. Give it a software brief
-and its autonomous coding harness plans, edits, runs, and verifies your code
-until the work is complete.
+zot is an **open source automated software factory**. It takes **work orders,
+not prompts**: a work order is a small YAML file - the durable objective, the
+acceptance criteria that define "done", the constraints the work must hold
+to - and each order becomes one autonomous run in which zot plans, edits, runs,
+and verifies your code until the work is complete.
 
-**Start a factory run** - grab a release, export a provider key, and give it a
-brief:
+**Start a factory run** - grab a release, export a provider key, write an
+order, and run it:
 
 ```bash
 export ZAI_API_KEY="..."
-zot "scaffold a tiny http server in go"
+zot new "scaffold a tiny http server in go"
+zot orders/scaffold-a-tiny-http-server-in-go.yaml
 ```
 
 That is the default pair (`zai` + `glm-5.2`). Any other provider is a pair of
@@ -31,7 +34,7 @@ flags:
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
-zot --backend anthropic --model claude-5-sonnet "..."
+zot --provider anthropic --model claude-5-sonnet orders/scaffold-a-tiny-http-server-in-go.yaml
 ```
 
 <p align="center">
@@ -41,7 +44,7 @@ zot --backend anthropic --model claude-5-sonnet "..."
 ### Why zot exists
 
 Most coding tools optimize the conversation. zot optimizes the production run:
-one software brief goes in, then the harness plans, edits, runs, and verifies the
+one work order goes in, then the harness plans, edits, runs, and verifies the
 work on its own. The agentic loop - thread assembly, compaction, loop detection,
 settle mode - runs inside the binary and talks straight to a model provider over
 the OpenAI-compatible API. There is no hosted engine and no account beyond the
@@ -53,8 +56,13 @@ turn to take: you watch the run, and the working tree is the output.
 
 ### What you get
 
-- **Brief-to-build automation** - one job enters the factory and the harness
-  runs it to completion.
+- **Order-to-build automation** - one work order enters the factory and the
+  harness runs it to completion; `zot orders/*.yaml` runs a batch, each order
+  its own run, stopping at the first that does not end in success.
+- **Done, defined up front** - an order carries acceptance criteria and
+  constraints alongside the objective, and `zot new --draft` has your model
+  survey the repo (read-only) and propose criteria grounded in its real build
+  and test setup, for you to review and edit.
 - **Real tools** - reads, writes, and edits files and runs shell commands in
   your repo.
 - **Visible production run** - watch the plan, edits, commands, and verification
@@ -81,8 +89,8 @@ spells the creator differently - so zot supplies the right prefix from its own
 catalogue and sizes the context budget to the real model behind it:
 
 ```bash
-zot --backend openrouter --model glm-5.2 "..."   # sent as z-ai/glm-5.2
-zot --backend vercel     --model glm-5.2 "..."   # sent as zai/glm-5.2
+zot --provider openrouter --model glm-5.2 orders/mission.yaml   # sent as z-ai/glm-5.2
+zot --provider vercel     --model glm-5.2 orders/mission.yaml   # sent as zai/glm-5.2
 ```
 
 On OpenAI, reasoning models use the Responses API automatically, so reasoning
@@ -92,13 +100,13 @@ state carries between tool rounds instead of being re-derived each time.
 
 An autonomous run is unattended by definition: nobody watched it, and by the
 time you look the terminal is gone. Every run is written to
-`~/.local/state/zot/sessions/` line by line as it happens - the brief, the model,
-every message and tool call, and how it ended.
+`~/.local/state/zot/sessions/` line by line as it happens - the order, the
+model, every message and tool call, and how it ended. And every order you ever
+ran stays on disk as a file, to be re-run, diffed, or committed.
 
 ```bash
-zot sessions                                  # what has run, newest first
-zot --resume last "now add the tests you skipped"
-zot --resume last                             # or continue the original brief
+zot sessions          # what has run, newest first
+zot --resume last     # continue the order the session was started with
 ```
 
 ### Run it in a container
@@ -112,7 +120,7 @@ docker run --rm -it \
   --user "$(id -u):$(id -g)" --env HOME=/tmp \
   --env ZAI_API_KEY \
   --volume "$PWD":/workspace \
-  ghcr.io/openzot/openzot:latest "add a /health endpoint and a test for it"
+  ghcr.io/openzot/openzot:latest orders/add-a-health-endpoint.yaml
 ```
 
 ### Repositories
