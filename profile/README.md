@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <strong>≈11 MiB · one native binary · no hosted engine · no telemetry</strong>
+</p>
+
+<p align="center">
   <a href="https://zot.im">Website</a> · <a href="https://github.com/openzot/openzot">Repository</a> · <a href="https://github.com/openzot/openzot/releases">Releases</a>
 </p>
 
@@ -25,8 +29,8 @@ order, and run it:
 
 ```bash
 export ZAI_API_KEY="..."
-zot new "scaffold a tiny http server in go"
-zot orders/scaffold-a-tiny-http-server-in-go.yaml
+zot new "scaffold a tiny http server in go"  # writes .zot/orders/<slug>.yaml
+zot                                          # runs your project's book
 ```
 
 That is the default pair (`zai` + `glm-5.2`). Any other provider is a pair of
@@ -34,7 +38,7 @@ flags:
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
-zot --provider anthropic --model claude-5-sonnet orders/scaffold-a-tiny-http-server-in-go.yaml
+zot --provider anthropic --model claude-5-sonnet .zot/orders/scaffold-a-tiny-http-server-in-go.yaml
 ```
 
 <p align="center">
@@ -57,7 +61,7 @@ turn to take: you watch the run, and the working tree is the output.
 ### What you get
 
 - **Order-to-build automation** - one work order enters the factory and the
-  harness runs it to completion; `zot orders/*.yaml` runs a batch, each order
+  harness runs it to completion; `zot .zot/orders/*.yaml` runs a batch, each order
   its own run, stopping at the first that does not end in success.
 - **Done, defined up front** - an order carries acceptance criteria and
   constraints alongside the objective, and `zot new --draft` has your model
@@ -89,8 +93,8 @@ spells the creator differently - so zot supplies the right prefix from its own
 catalogue and sizes the context budget to the real model behind it:
 
 ```bash
-zot --provider openrouter --model glm-5.2 orders/mission.yaml   # sent as z-ai/glm-5.2
-zot --provider vercel     --model glm-5.2 orders/mission.yaml   # sent as zai/glm-5.2
+zot --provider openrouter --model glm-5.2 .zot/orders/mission.yaml   # sent as z-ai/glm-5.2
+zot --provider vercel     --model glm-5.2 .zot/orders/mission.yaml   # sent as zai/glm-5.2
 ```
 
 On OpenAI, reasoning models use the Responses API automatically, so reasoning
@@ -120,7 +124,27 @@ docker run --rm -it \
   --user "$(id -u):$(id -g)" --env HOME=/tmp \
   --env ZAI_API_KEY \
   --volume "$PWD":/workspace \
-  ghcr.io/openzot/openzot:latest orders/add-a-health-endpoint.yaml
+  ghcr.io/openzot/openzot:latest .zot/orders/add-a-health-endpoint.yaml
+```
+
+### Run it from GitHub Actions
+
+An unattended run is exactly the shape of a CI job, so the official
+[actions](https://github.com/openzot/actions) put the factory in your
+workflows: run the orders committed under `.zot/orders/`, write an order inline for
+recurring work on a schedule, or label an issue and have zot draft the order
+from it and run it to completion - with the result opened as a pull request.
+Provider, model and the full configuration can live in the workflow, with keys
+passed as secrets.
+
+```yaml
+- uses: openzot/actions/run@v0
+  with:
+    orders: .zot/orders/*.yaml
+    provider: zai
+    model: glm-5.2
+  env:
+    ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
 ```
 
 ### Repositories
@@ -128,6 +152,7 @@ docker run --rm -it \
 | Repo                                                  | Description                  |
 | ----------------------------------------------------- | ---------------------------- |
 | [openzot/openzot](https://github.com/openzot/openzot) | The zot software factory CLI |
+| [openzot/actions](https://github.com/openzot/actions) | Official GitHub Actions: run orders, or turn issues into orders, in CI |
 
 ### Ecosystem
 
