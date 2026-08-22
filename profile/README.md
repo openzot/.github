@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zot.im">Website</a> · <a href="https://github.com/openzot/openzot">Repository</a> · <a href="https://github.com/openzot/openzot/releases">Releases</a>
+  <a href="https://zot.im">Website</a> · <a href="https://github.com/openzot/openzot">Repository</a> · <a href="https://github.com/openzot/openzot/releases">Releases</a> · <a href="https://openzot.github.io/arcade/">Arcade</a>
 </p>
 
 ---
@@ -73,7 +73,7 @@ turn to take: you watch the run, and the working tree is the output.
   stream by; `--diff` shows a syntax-highlighted diff under every write.
 - **Any provider** - fourteen backends ship built in, plus anything else that
   speaks the same API.
-- **Project context** - picks up `AGENT.md` and skills from your repo.
+- **Project context** - picks up `AGENTS.md` and skills from your repo.
 - **Resumable** - every run is logged to disk as it happens, so an unattended
   run that stopped can be read back and picked up where it left off.
 - **Tiny and open source** - one Go binary, no hosted service, no telemetry.
@@ -147,12 +147,27 @@ passed as secrets.
     ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
 ```
 
+### See it running: the arcade
+
+**[openzot.github.io/arcade](https://openzot.github.io/arcade/)** is a live zot
+factory you can watch and play. Every 30 minutes a GitHub Actions job hands zot
+the same standing order - read the catalogue of games made so far, invent one
+unlike everything on it, build it as vanilla HTML, CSS and JavaScript, playtest
+it in a headless browser, and publish it. The workflow commits whatever zot
+leaves in the tree. No pull request, no review, no human in the loop: the live
+site *is* the working tree.
+
+It is the shortest honest answer to what a fully autonomous run produces - one
+order, run on a schedule, and a shelf of finished games nobody asked for
+individually.
+
 ### Repositories
 
 | Repo                                                  | Description                  |
 | ----------------------------------------------------- | ---------------------------- |
 | [openzot/openzot](https://github.com/openzot/openzot) | The zot software factory CLI |
 | [openzot/actions](https://github.com/openzot/actions) | Official GitHub Actions: run orders, or turn issues into orders, in CI |
+| [openzot/arcade](https://github.com/openzot/arcade)   | A live factory demo: one browser game every 30 minutes, unattended - [play it](https://openzot.github.io/arcade/) |
 
 ### Ecosystem
 
