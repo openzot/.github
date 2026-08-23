@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://zot.im">Website</a> · <a href="https://github.com/openzot/openzot">Repository</a> · <a href="https://github.com/openzot/openzot/releases">Releases</a> · <a href="https://openzot.github.io/arcade/">Arcade</a>
+  <a href="https://zot.im">Website</a> · <a href="https://github.com/openzot/openzot">Repository</a> · <a href="https://github.com/openzot/openzot/releases">Releases</a> · <a href="https://openzot.github.io/arcade/">Arcade</a> · <a href="https://openzot.github.io/machinery/">Machinery</a>
 </p>
 
 <p align="center">
@@ -35,9 +35,13 @@ zot
 - **Built to run unattended.** Compaction, loop detection, resumable logs. [→ how it works](https://github.com/openzot/openzot/blob/main/docs/how-it-works.md)
 - **Orchestration is content.** No sub-agent framework; skills decide. [→ sub-agents](https://github.com/openzot/openzot/blob/main/docs/how-it-works.md#sub-agents-and-coordination)
 
-Watch it work: **[the arcade](https://openzot.github.io/arcade/)** ships a new
-browser game every 30 minutes from one standing order, with no human in the
-loop.
+Watch it work: the factories run in public, each from one standing order with
+no human in the loop.
+
+| Factory | Makes | Sessions |
+| --- | --- | --- |
+| [Arcade](https://openzot.github.io/arcade/) ([repo](https://github.com/openzot/arcade)) | One brand-new browser game per shift, playtested and published | [openzot/arcade](https://huggingface.co/datasets/openzot/arcade) |
+| [Machinery](https://openzot.github.io/machinery/) ([repo](https://github.com/openzot/machinery)) | One working control panel per shift - a live simulation, faults, and its operating manual | [openzot/machinery](https://huggingface.co/datasets/openzot/machinery) |
 
 ### Repositories
 
@@ -45,7 +49,8 @@ loop.
 | ----------------------------------------------------- | ------------------------------------------------------------------------------ |
 | [openzot/openzot](https://github.com/openzot/openzot) | The zot software factory CLI                                                   |
 | [openzot/actions](https://github.com/openzot/actions) | Official GitHub Actions: run orders, or turn issues into orders, in CI         |
-| [openzot/arcade](https://github.com/openzot/arcade)   | A live factory demo: one browser game every 30 minutes, unattended             |
+| [openzot/arcade](https://github.com/openzot/arcade)   | A live factory: one browser game every 30 minutes, unattended                  |
+| [openzot/machinery](https://github.com/openzot/machinery) | A live factory: one machine per shift - a control panel, its simulation, its manual |
 
 ### Ecosystem
 
