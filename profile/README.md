@@ -38,10 +38,10 @@ zot
 Watch it work: the factories run in public, each from one standing order with
 no human in the loop.
 
-| Factory | Makes | Sessions |
-| --- | --- | --- |
-| [Arcade](https://openzot.github.io/arcade/) ([repo](https://github.com/openzot/arcade)) | One brand-new browser game per shift, playtested and published | [openzot/arcade](https://huggingface.co/datasets/openzot/arcade) |
-| [Machinery](https://openzot.github.io/machinery/) ([repo](https://github.com/openzot/machinery)) | One working control panel per shift - a live simulation, faults, and its operating manual | [openzot/machinery](https://huggingface.co/datasets/openzot/machinery) |
+| Factory | Makes | Repo | Sessions |
+| --- | --- | --- | --- |
+| [Arcade](https://openzot.github.io/arcade/) | One brand-new browser game per shift, playtested and published | [openzot/arcade](https://github.com/openzot/arcade) | [openzot/arcade](https://huggingface.co/datasets/openzot/arcade) |
+| [Machinery](https://openzot.github.io/machinery/) | One working control panel per shift - a live simulation, faults, and its operating manual | [openzot/machinery](https://github.com/openzot/machinery) | [openzot/machinery](https://huggingface.co/datasets/openzot/machinery) |
 
 ### Repositories
 
